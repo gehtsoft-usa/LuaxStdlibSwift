@@ -177,5 +177,4 @@ public class Variant: NSObject {
     public func isObject() -> Bool {
         data is NSObject
     }
-
 }
