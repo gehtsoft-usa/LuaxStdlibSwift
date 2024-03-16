@@ -52,5 +52,4 @@ public class StringMap: NSObject {
     public func clear() -> Void {
         map.removeAll()
     }
-
 }

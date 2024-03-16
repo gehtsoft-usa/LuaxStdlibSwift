@@ -406,5 +406,4 @@ public class StdLib: NSObject {
         guard let x = x else { return }
         printLog(message: x)
     }
-
 }

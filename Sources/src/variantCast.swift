@@ -55,5 +55,4 @@ public class VariantCast: NSObject {
     public static func castToObject(_ v : variant?) -> NSObject? {
         v?.asObject()
     }
-
 }
