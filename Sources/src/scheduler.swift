@@ -1,9 +1,7 @@
 import Foundation
 
-public typealias scheduler = Scheduler
-
 //@DocBrief("Scheduler class")
-public class Scheduler: NSObject {
+public class _scheduler_: NSObject {
 
     private var periodInMilliseconds: Int = 0
     private var action: action? = nil
@@ -77,9 +75,9 @@ public class Scheduler: NSObject {
         self.lock.unlock()
     }
 
-    public static func create(_ periodInMilliseconds : Int, _ action : action?) -> scheduler? {
+    public static func create(_ periodInMilliseconds : Int, _ action : action?) -> _scheduler_? {
         guard let action = action else { return nil }
-        let scheduler = Scheduler()
+        let scheduler = _scheduler_()
         scheduler.periodInMilliseconds = periodInMilliseconds
         scheduler.action = action
         return scheduler
