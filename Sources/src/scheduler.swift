@@ -1,7 +1,7 @@
 import Foundation
 
 //@DocBrief("Scheduler class")
-public class _scheduler_: NSObject {
+open class _scheduler_: NSObject {
 
     private var periodInMilliseconds: Int = 0
     private var action: action? = nil
