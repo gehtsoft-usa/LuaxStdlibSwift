@@ -9,11 +9,11 @@ open class _scheduler_: NSObject {
     private var timer: DispatchSourceTimer? = nil
     private let lock = NSRecursiveLock()
 
-    public override init() {
+    open override init() {
         super.init()
     }
 
-    public func startImmediately() -> Void {
+    open func startImmediately() -> Void {
         self.lock.lock()
         stopped = false
         do {
@@ -29,7 +29,7 @@ open class _scheduler_: NSObject {
         startWithDelay()
     }
 
-    public func startWithDelay() -> Void {
+    open func startWithDelay() -> Void {
         self.lock.lock()
         stopped = false
         if (periodInMilliseconds >= 0) {
@@ -64,7 +64,7 @@ open class _scheduler_: NSObject {
         self.lock.unlock()
     }
 
-    public func stop() -> Void {
+    open func stop() -> Void {
         self.lock.lock()
         stopped = true
         if timer != nil {
