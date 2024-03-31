@@ -9,7 +9,7 @@ open class _scheduler_: NSObject {
     private var timer: DispatchSourceTimer? = nil
     private let lock = NSRecursiveLock()
 
-    open override init() {
+    public override init() {
         super.init()
     }
 
