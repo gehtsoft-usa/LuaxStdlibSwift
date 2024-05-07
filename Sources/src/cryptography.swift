@@ -16,8 +16,22 @@ enum AESError: Error {
 
 //@DocBrief("The platform cryptography functions")
 public class Cryptography: NSObject {
-    public static func MD5(_ v : buffer?) -> buffer? {
-        fatalError("'MD5' is not implemented yet.");
+    public static func MD5(_ v : buffer?) throws -> buffer? {
+        guard let v = v else { return nil }
+
+        var digest = [UInt8](repeating: 0, count: Int(CC_MD5_DIGEST_LENGTH))
+        let _ = v.data.withUnsafeBytes { pointer in
+            CC_MD5(pointer.baseAddress, CC_LONG(v.length()), &digest)
+        }
+        var md5String = ""
+        for byte in digest {
+            md5String += String(format:"%02x", UInt8(byte))
+        }
+        do {
+            return try buffer.fromHexString(md5String)
+        } catch {
+            throw CryptographyError.composingError
+        }
     }
 
     public static func SHA1(_ v : buffer?) throws -> buffer? {
