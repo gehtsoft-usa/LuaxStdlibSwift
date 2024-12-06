@@ -312,7 +312,7 @@ public class StdLib: NSObject {
         guard let x = x else { return -1 }
         var calendar = Calendar(identifier: .gregorian)
         calendar.timeZone = TimeZone(abbreviation: "UTC")!
-        return calendar.component(.weekday, from: x)
+        return calendar.component(.weekday, from: x) - 1
     }
 
     public static func month(_ x : Date?) -> Int {
