@@ -13,4 +13,9 @@ open class httpResponseCallback: NSObject {
     /// - Parameter error: Error text
     open func onError(_ error : String?) throws -> Void {
     }
+    /// The action method to be invoked on communicator state change
+    ///
+    /// - Parameter state: Current state
+    open func onStateChange(_ state : Int) -> Void {
+    }
 }
