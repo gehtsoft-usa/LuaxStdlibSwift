@@ -78,6 +78,10 @@ open class HttpCommunicator: NSObject {
         try request(url: url, method: .post, body: body, callback: callback)
     }
 
+    open func delete(_ url : String?, _ callback : httpResponseCallback?) throws -> Void {
+        try request(url: url, method: .delete, body: nil, callback: callback)
+    }
+
     open func setRequestHeader(_ name : String?, _ value : String?) -> Void {
         guard let name = name else { return }
         HttpCommunicator.httpCommunicatorQueue.sync {
